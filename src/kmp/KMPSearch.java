@@ -1,3 +1,5 @@
+package kmp;
+
 public class KMPSearch {
 
     /**
