@@ -1,8 +1,32 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(calcNextTable("011011")));
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the string: ");
+        String haystack = sc.nextLine();
+        System.out.print("Enter the substring to search: ");
+        String needle = sc.nextLine();
+        int[] nextTable = calcNextTable(needle);
+
+        int i = 0;
+        while(i <= haystack.length() - needle.length()) {
+            int j = 0;
+            while(j < needle.length() && (haystack.charAt(i + j) == needle.charAt(j))) {
+                j++;
+            }
+            if(j == needle.length()) {
+                System.out.println("Found " + needle + " at index " + i);
+                return;
+            }
+            else {
+                int k = nextTable[j];
+                if(k == -1) i = i + j + 1;
+                else if(k > 0) i += j - k;
+                else i++;
+            }
+        }
+        System.out.println("Substring not found");
     }
     public static int[] calcNextTable(String needle){
         int[] values = new int[needle.length()];
