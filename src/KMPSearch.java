@@ -31,7 +31,7 @@ public class KMPSearch {
         }
         return -1;
     }
-    public static int[] calcNextTable(String needle){
+    private static int[] calcNextTable(String needle){
         int[] values = new int[needle.length()];
         values[0] = -1;
         int i = 0;

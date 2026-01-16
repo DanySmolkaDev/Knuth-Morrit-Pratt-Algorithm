@@ -31,10 +31,10 @@ using a -1 base-index convention.
 
 Needle: ABACD
 
-| Index  | Character | Next Table |
-|--------|-----------|------------|
-| 0      | A         | -1         |
-| 1      | B         | 0          |
-| 2      | A         | -1         |
-| 1      | C         | 1          |
-| 0      | D         | 0          |
+| Index | Character | Next Table |
+|-------|-----------|------------|
+| 0     | A         | -1         |
+| 1     | B         | 0          |
+| 2     | A         | -1         |
+| 3     | C         | 1          |
+| 4     | D         | 0          |
