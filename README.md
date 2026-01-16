@@ -4,13 +4,27 @@ featuring an optimized failure function(next table) with look-ahead logic to min
 redundant comparisons.
 
 # Complexity analysis
-Next table time: O(n) where n is the length of the needle
+Next table time:O(n) where n is the length of the needle
+
 Search time: O(h) where h is the length of the haystack
+
 Space complexity: O(n) to store the next table
 
 # Usage
 This implementation is designed as a reusable utility.
 
+-----------
+```java
+String haystack = "ABABDABACDABABCABAB";
+
+String needle = "ABABCABAB";
+
+int result = KMP.search(haystack, needle);
+
+if (result != -1) {
+    System.out.println("Pattern found at index: " + result);
+}
+```
 # Next table function
 The core of this algorithm is the calcNextTable method. It constructs the symmetry table
 using a -1 base-index convention.
