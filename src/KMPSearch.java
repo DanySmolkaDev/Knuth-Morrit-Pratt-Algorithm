@@ -1,15 +1,18 @@
-import java.util.Scanner;
+public class KMPSearch {
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the string: ");
-        String haystack = sc.nextLine();
-        System.out.print("Enter the substring to search: ");
-        String needle = sc.nextLine();
+    /**
+     *Searches for the first occurrence of needle in haystack
+     * @param haystack the main string
+     * @param needle the substring to search for
+     * @return starting index of needle, or -1 if not found
+     */
+    public static int search(String haystack, String needle) {
+        if(haystack == null || needle == null || needle.isEmpty()) return -1;
+        if(haystack.length() < needle.length()) return -1;
+
         int[] nextTable = calcNextTable(needle);
-
         int i = 0;
+
         while(i <= haystack.length() - needle.length()) {
             int j = 0;
             while(j < needle.length() && (haystack.charAt(i + j) == needle.charAt(j))) {
@@ -17,7 +20,7 @@ public class Main {
             }
             if(j == needle.length()) {
                 System.out.println("Found " + needle + " at index " + i);
-                return;
+                return i;
             }
             else {
                 int k = nextTable[j];
@@ -26,12 +29,11 @@ public class Main {
                 else i++;
             }
         }
-        System.out.println("Substring not found");
+        return -1;
     }
     public static int[] calcNextTable(String needle){
         int[] values = new int[needle.length()];
         values[0] = -1;
-
         int i = 0;
         int j = -1;
 
