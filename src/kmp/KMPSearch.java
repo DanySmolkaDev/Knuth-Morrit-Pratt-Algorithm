@@ -21,7 +21,6 @@ public class KMPSearch {
                 j++;
             }
             if(j == needle.length()) {
-                System.out.println("Found " + needle + " at index " + i);
                 return i;
             }
             else {
